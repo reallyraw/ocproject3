@@ -1,0 +1,4 @@
+verifier syntaxe 
+
+faire en SQL 
+ou bien appeler directement avec nom prenom

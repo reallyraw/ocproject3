@@ -1,0 +1,295 @@
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
+
+/* UNIVERSAL */
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  font-size: 100%;
+}
+
+/* ROOT FONT STYLES */
+
+* {
+  font-family: 'Lato', Helvetica, sans-serif;
+  color: #333447;
+  line-height: 1.5;
+}
+
+/* TYPOGRAPHY */
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.375rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.875rem;
+}
+
+p {
+  font-size: 1.125rem;
+  font-weight: 200;
+  line-height: 1.8;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-regular {
+  font-weight: 400;
+}
+
+.font-heavy {
+  font-weight: 700;
+}
+
+/* POSITIONING */
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.justify {
+  text-align: justify;
+}
+
+/* ==== GRID SYSTEM ==== */
+
+.container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+@media only screen and (min-width: 33.75em) {  /* 540px */
+  .container {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 60em) { /* 960px */
+  .container {
+    width: 75%;
+    max-width: 60rem;
+  }
+}
+
+
+/* site elements - header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    height: 12.5%;
+    border-bottom: gray 2px solid;
+}
+
+.logo {
+    padding-left: 3em;
+    display: block;
+    float: left;
+    max-height: 100%;
+}
+
+.inside-block {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.resize {
+    display: block;
+    height: 5em;
+    width: 7.5em;
+    
+    max-width: 100%;
+}
+
+.profile {
+    display: block;
+    float: right;
+    max-height: 100%;
+    width: 20%;
+}
+
+.profile-img {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    max-width: 25%;
+    height: auto;
+}
+
+.username {
+    display: block;
+}
+
+
+/* site elements - presentation */
+
+.presentation {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: gray 2px solid;
+}
+
+.bienvenue {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about {
+  display: block;
+  font-style: italic; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-pres {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* site elements - acteurs */
+
+.acteurs {
+  display: flex;  
+  justify-content: center;
+  flex-direction: column;
+}
+
+.name-acteur {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.desc-acteur {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-acteur {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.commentaires {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* site elements - footer */
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-top: gray 2px solid;
+    max-height: 10%;
+}
+
+.footer-element {
+    display: block;
+    margin: 3px;
+}
+
+/* login page elements */
+
+
+.login {
+  width: 400px;
+  background-color: #ffffff;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+  margin: 100px auto;
+}
+.login h1 {
+  text-align: center;
+  color: #5b6574;
+  font-size: 24px;
+  padding: 20px 0 20px 0;
+  border-bottom: 1px solid #dee0e4;
+}
+.login form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 20px;
+}
+.login form label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color:red;
+  color: #ffffff;
+}
+.login form input[type="password"], .login form input[type="text"] {
+  width: 310px;
+  height: 50px;
+  border: 1px solid #dee0e4;
+  margin-bottom: 20px;
+  padding: 0 15px;
+}
+.login form input[type="submit"] {
+  width: 100%;
+  padding: 15px;
+ margin-top: 20px;
+  background-color: red;
+  border: 0;
+  cursor: pointer;
+  font-weight: bold;
+  color: #ffffff;
+  transition: background-color 0.2s;
+}
+.login form input[type="submit"]:hover {
+background-color: lightcoral;
+  transition: background-color 0.2s;
+}
