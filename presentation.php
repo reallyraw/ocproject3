@@ -1,4 +1,4 @@
-<div class='presentation'>
+<section class='presentation'>
 <div class='container'>
     <h2 class='bienvenue'>Bienvenue sur le site du GBAF !</h2>
     <div class='about'>Le Groupement Banque Assurance Français 
@@ -16,4 +16,4 @@
     <img class='img-pres' src='img/pres.png'>
     </br>
 </div>
-</div>
+</section>

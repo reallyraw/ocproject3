@@ -2,12 +2,10 @@
 session_start();
 
 
-if (!isset($_SESSION['username']))
-{
+if (!isset($_SESSION['username'])  AND !isset($_SESSION['password'])) {
     header("Location: login.php");
     die();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -19,19 +17,19 @@ if (!isset($_SESSION['username']))
 
 <body>
 
-    <?php include 'header.php'; ?>
+    <?php require 'header.php'; ?>
 
     </br>
 
-    <?php include 'presentation.php'; ?>
+    <?php require 'presentation.php'; ?>
 
     </br>
 
-    <?php include 'acteurs.php'?>
+    <?php require 'acteurs.php'?>
 
     </br>
 
-    <?php include 'footer.php'; ?>  
+    <?php require 'footer.php'; ?>
 
 </body>
 
