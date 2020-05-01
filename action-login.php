@@ -1,6 +1,6 @@
 <?php
 
-$bdd = new PDO('mysql:host=localhost;port=3308;dbname=oc_gbaf', 'root', '');
+require 'bdd-connect.php';
 
 if (!isset($_POST['username'], $_POST['password']) ) {
     exit('Veuillez remplir les champs utilisateur et mot de passe!');

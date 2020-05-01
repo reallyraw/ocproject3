@@ -84,10 +84,10 @@ $nblikes = $total_likes->fetch(PDO::FETCH_ASSOC);?>
 <div class='bloc round'><?php echo $nblikes['liked']; ?></div>
 <div class='bloc'>
 <form method="post" class='top-bloc'>
-<input class='bloc' <?php echo $like;?> type='submit' value='👍' border="0" alt="Submit" name='like'/>
-<input class='bloc' <?php echo $like_active;?> type='submit' value="J'aime✅" border="0" alt="Submit" name='like-active'/>
-<input class='bloc' <?php echo $dislike;?> type='submit' value='👎' border="0" alt="Submit" name='dislike'/>
-<input class='bloc' <?php echo $dislike_active;?> type='submit' value="Je n'aime pas ✅"  border="0" name='dislike-active' alt="Submit"/>
+<input class='bloc' <?php echo $like;?> type='submit' value='👍' name='like'/>
+<input class='bloc' <?php echo $like_active;?> type='submit' value="J'aime✅" name='like-active'/>
+<input class='bloc' <?php echo $dislike;?> type='submit' value='👎' name='dislike'/>
+<input class='bloc' <?php echo $dislike_active;?> type='submit' value="Je n'aime pas ✅"  name='dislike-active'/>
 </form>
 </div>
 </div>

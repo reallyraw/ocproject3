@@ -7,15 +7,8 @@ if (!isset($_SESSION['username'])) {
     die();
 }
 
-// Connexion à la base de données
-try
-{
-    $bdd = new PDO('mysql:host=localhost;port=3308;dbname=oc_gbaf', 'root', '');
-}
-catch(Exception $e)
-{
-        die('Erreur : '.$e->getMessage());
-}
+
+require 'bdd-connect.php';
 
 // Récupération du billet
 $req = $bdd->prepare('SELECT * FROM acteurs WHERE id_acteur = ?');
@@ -45,7 +38,7 @@ $donnees = $req->fetch();
     </h3>
 
     <div class='acteur-bloc'>
-    <img class='img-pres' src='<?php echo $donnees['image_acteur'] ; ?>' />
+    <img class='img-pres' alt='<?php echo $donnees['nom_acteur'] ; ?>' src='<?php echo $donnees['image_acteur'] ; ?>' />
     <p>
     <?php echo nl2br($donnees['text_acteur']); ?>
     </p>

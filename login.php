@@ -7,7 +7,8 @@ if (isset($_SESSION['username']) AND isset($_SESSION['password'])) {
 }
 
 
-$bdd = new PDO('mysql:host=localhost;port=3308;dbname=oc_gbaf', 'root', '');
+
+require 'bdd-connect.php';
 $req = $bdd->query('SELECT * FROM membres');
 $donnees = $req->fetch();
 
@@ -62,7 +63,7 @@ catch(PDOException $error)
 
         <?php require 'header.php'; ?>
 
-     </br>
+     <br />
 
      <?php
         if(isset($message)) {
@@ -70,33 +71,31 @@ catch(PDOException $error)
         }
         ?>
 
-     </br>
+     <br />
 
     <div class="login container">
         <h1>Login</h1>
         <form method="post">
-                     <label><img src='img/user-small.png' /></label>
+                     <label><img src='img/user-small.png' alt='Utilisateur' /></label>
                      <input type="text" name="username" placeholder="Nom d'utilisateur" class="form-control" />
                      <br />
-                     <label><img src='img/mdp.png' /></label>
+                     <label><img src='img/mdp.png' alt='Mot de passe' /></label>
                      <input type="password" name="password" placeholder="Mot de passe" class="form-control" />
                      <br /><p>
                      <a href='forgot-pw.php'>Mot de passe oublié ?</a></p>
                      <br /><p>&emsp;|&emsp;</p><br /><p>
                      <a href='register.php'>Inscription</a></p>
                      <input type="submit" name="login" class="btn btn-info" value="Login" />
-                </form>
-           </div>
-           </form>
+        </form>
     </div>
 
 
 
-    </br>
+    <br />
 
     <?php require 'footer.php'; ?>
 
-    </br>
+    <br />
 
     </body>
 </html>

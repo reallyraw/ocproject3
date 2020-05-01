@@ -3,17 +3,16 @@
 session_start();
 
 
-if (isset($_SESSION['username']) AND isset($_SESSION['password'])) {
+if (isset($_SESSION['username'])) {
     header("Location: index.php");
     die();
 }
 
 
-$bdd = new PDO('mysql:host=localhost;port=3308;dbname=oc_gbaf', 'root', '');
-
-$reqres = $bdd->query('SELECT * FROM membres');
+require 'bdd-connect.php';
+$reqres = $bdd->prepare('SELECT * FROM membres WHERE username=?');
+$reqres->execute(array($_SESSION['reset']));
 $donnees = $reqres->fetch();
-$hide='';
 
 try
  {
@@ -28,15 +27,12 @@ try
         else
            {
             if($mdp == $mdp2) {
-                $query = "SELECT * FROM membres WHERE username = :username";
-                $statement = $bdd->prepare($query);
                 if (password_verify($_POST['reponse'], $donnees['reponse'])) {
                     $hashmdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
                     $update = "UPDATE membres SET password=? WHERE username = ?";
                     $stmt= $bdd->prepare($update);
-                    $stmt->execute([$hashmdp, $donnees['username']]);
-                    $message = 'Mot de passe mis à jour, veuillez vous ';
-                    $hide='style="display:none;"';
+                    $stmt->execute([$hashmdp, $_SESSION['reset']]);
+                    $message = "Mot de passe mis à jour, veuillez vous <a href='login.php'>reconnecter</a>.";
                 } else {
                          $message = 'Réponse secrète incorrecte';
                 }
@@ -63,28 +59,27 @@ catch(PDOException $error)
     <body>
 
         <?php require 'header.php'; ?>
-     <h3 class='center' color='red'>
+     <h3 class='center'>
      <?php
         if(isset($message)) {
             echo $message;
-            echo "<a href='login.php'>reconnecter</a>.";
         }
         ?>
      </h3>
 
-</br>
+<br />
 
-<div class="reset-pw container login" <?php echo $hide; ?>>
+<div class="reset-pw container login">
     <h1>Réinitialisation du mot de passe</h1>
     <h4 class='center'><?php echo $donnees['question']; ?></h4>
      <form method="post">
-               <label><img src='img/answer.png' /></label>
+               <label><img src='img/answer.png' alt='Réponse' /></label>
                  <input type="text" name="reponse" placeholder="Réponse secrète" class="form-control" />
                  <br />
-                 <label><img src='img/mdp.png' /></label>
+                 <label><img src='img/mdp.png' alt='Mot de passe'/></label>
                  <input type="password" name="mdp" placeholder="Votre nouveau mot de passe" class="form-control" />
                  <br />
-                 <label><img src='img/mdp.png' /></label>
+                 <label><img src='img/mdp.png' alt='Confirmation'/></label>
                  <input type="password" name="mdp2" placeholder="Confirmation" class="form-control" />
                  <br />
                  <a href='login.php'>Retour à la page de connexion</a>
@@ -92,10 +87,10 @@ catch(PDOException $error)
             </form>
  </div>
 
-</br>
+<br />
     <?php require 'footer.php'; ?>
 
-    </br>
+    <br />
 
     </body>
 </html>

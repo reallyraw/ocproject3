@@ -9,8 +9,7 @@ if (isset($_SESSION['username']) AND isset($_SESSION['password'])) {
 }
 
 
-$bdd = new PDO('mysql:host=localhost;port=3308;dbname=oc_gbaf', 'root', '');
-
+require 'bdd-connect.php';
 if(isset($_POST['forminscription'])) {
     $nom = htmlspecialchars($_POST['nom']);
     $prenom = htmlspecialchars($_POST['prenom']);
@@ -76,30 +75,30 @@ if(isset($_POST['forminscription'])) {
 
    <div class='login container'>
       <h1>Inscription</h1>
-      <form method="POST" action="">
-         <label for="nom"><img src='img/name.png' /></label>
+      <form method="POST">
+         <label for="nom"><img src='img/name.png' alt='Nom' /></label>
          <input type="text" placeholder="Votre Nom" id="nom" name="nom" />
-         </br>
-         <label for="prenom"><img src='img/name.png' /></label>
+         <br />
+         <label for="prenom"><img src='img/name.png' alt='Prénom'/></label>
          <input type="text" placeholder="Votre Prénom" id="prenom" name="prenom" />
-         </br>
-         <label for="username"><img src='img/user-small.png' /></label>
+         <br />
+         <label for="username"><img src='img/user-small.png' alt='Utilisateur'/></label>
          <input type="text" placeholder="Nom d'utilisateur" id="username" name="username" />
-         </br>
-         <label for="mdp"><img src='img/mdp.png' /></label>
+         <br />
+         <label for="mdp"><img src='img/mdp.png' alt='Mot de passe'/></label>
          <input type="password" placeholder="Votre mot de passe" id="mdp" name="mdp" />
-         </br>
-         <label for="mdp2"><img src='img/mdp.png' /></label>
+         <br />
+         <label for="mdp2"><img src='img/mdp.png' alt='Mot de passe'/></label>
          <input type="password" placeholder="Confirmez votre mdp" id="mdp2" name="mdp2" />
-         </br>
-         <label for="question"><img src='img/answer.png' /></label>
+         <br />
+         <label for="question"><img src='img/answer.png' alt='Question'/></label>
          <input type="text" placeholder="Votre question secrète" id="question" name="question" />
-         </br>
-         <label for="reponse"><img src='img/answer.png' /></label>
+         <br />
+         <label for="reponse"><img src='img/answer.png' alt='Réponse'/></label>
          <input type="text" placeholder="La réponse" id="reponse" name="reponse" />
-         </br>
+         <br />
          <a href="login.php">Déjà un compte? Connectez-vous</a>
-         </br>
+         <br />
          <input type="submit" name="forminscription" value="Je m'inscris" />
          </form>
          </div>

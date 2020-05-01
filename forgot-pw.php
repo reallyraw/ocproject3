@@ -6,7 +6,8 @@ if (isset($_SESSION['username']) AND isset($_SESSION['password'])) {
     die();
 }
 
-$bdd = new PDO('mysql:host=localhost;port=3308;dbname=oc_gbaf', 'root', '');
+
+require 'bdd-connect.php';
 
 try
  {
@@ -26,7 +27,7 @@ try
             );
                $count = $statement->rowCount();
             if($count > 0) {
-                $_SESSION['username'] = $_POST['username'];
+                $_SESSION['reset'] = $_POST['username'];
                 header('location:reset_pw.php');
             }
             else
@@ -57,12 +58,12 @@ catch(PDOException $error)
             echo '<font color="red">'.$message."</font>";
         }
         ?>
-    </br>
+    <br />
 
     <div class="fgt-pw container login">
         <h1 class='center'>Mot de passe oublié</h1>
         <form method="post" class='center' >
-                     <label><img src='img/user-small.png' /></label>
+                     <label><img src='img/user-small.png' alt='Utilisateur'/></label>
                      <input type="text" name="username" placeholder="Nom d'utilisateur" class="form-control" />
                      <br />
                     <a href='login.php'>Retour à la page de connexion</a>
@@ -70,11 +71,11 @@ catch(PDOException $error)
                 </form>
     </div>
 
-    </br>
+    <br />
 
     <?php require 'footer.php'; ?>
 
-    </br>
+    <br />
 
     </body>
 </html>

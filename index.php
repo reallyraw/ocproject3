@@ -19,15 +19,15 @@ if (!isset($_SESSION['username'])  AND !isset($_SESSION['password'])) {
 
     <?php require 'header.php'; ?>
 
-    </br>
+    <br />
 
     <?php require 'presentation.php'; ?>
 
-    </br>
+    <br />
 
     <?php require 'acteurs.php'?>
 
-    </br>
+    <br />
 
     <?php require 'footer.php'; ?>
 

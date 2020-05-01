@@ -9,8 +9,8 @@ if (!isset($_SESSION['username']) AND !isset($_SESSION['password'])) {
 
 $erreur='';
 
-$bdd = new PDO('mysql:host=localhost;port=3308;dbname=oc_gbaf', 'root', '');
 
+require 'bdd-connect.php';
 if(isset($_POST['formupdate'])) {
     $username = htmlspecialchars($_POST['username']);
     $username2 = htmlspecialchars($_POST['username2']);
@@ -81,7 +81,7 @@ if(isset($_POST['formupdate'])) {
 
     <?php require 'header.php'; ?>
 
-    </br>
+    <br />
 
     <h5 class='center'><a href='index.php'>Retour à la page d'accueil</a></h5>
 
@@ -93,32 +93,32 @@ if(isset($_POST['formupdate'])) {
 
     <div class='login container'>
       <h1>Modifier les infos de votre compte</h1>
-      <form method="POST" action="">
-         <label for="username"><img src='img/user-small.png' /></label>
+      <form method="POST">
+         <label for="username"><img src='img/user-small.png' alt='Utilisateur'/></label>
          <input type="text" placeholder="Nouveau nom d'utilisateur" id="username" name="username" />
-         </br>
-         <label for="username2"><img src='img/user-small.png' /></label>
+         <br />
+         <label for="username2"><img src='img/user-small.png' alt='Utilisateur'/></label>
          <input type="text" placeholder="Confirmation" id="username2" name="username2" />
-         </br>
-         <label for="mdp"><img src='img/mdp.png' /></label>
+         <br />
+         <label for="mdp"><img src='img/mdp.png' alt='Mot de passe'/></label>
          <input type="password" placeholder="Votre nouveau mot de passe" id="mdp" name="mdp" />
-         </br>
-         <label for="mdp2"><img src='img/mdp.png' /></label>
+         <br />
+         <label for="mdp2"><img src='img/mdp.png' alt='Mot de passe'/></label>
          <input type="password" placeholder="Confirmez le nouveau mot de passe" id="mdp2" name="mdp2" />
-         </br>
-         <label for="question"><img src='img/answer.png' /></label>
+         <br />
+         <label for="question"><img src='img/answer.png' alt='Question'/></label>
          <input type="text" placeholder="Votre nouvelle question secrète" id="question" name="question" />
-         </br>
-         <label for="reponse"><img src='img/answer.png' /></label>
+         <br />
+         <label for="reponse"><img src='img/answer.png' alt='Reponse'/></label>
          <input type="text" placeholder="La nouvelle réponse" id="reponse" name="reponse" />
-         </br>
+         <br />
          <a href="action-logout.php">Se déconnecter</a>
-         </br>
+         <br />
          <input type="submit" name="formupdate" value="Mettre à jour" />
          </form>
          </div>
 
-    </br>
+    <br />
 
     <?php require 'footer.php'; ?>
 
