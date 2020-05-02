@@ -18,7 +18,7 @@ if(isset($_POST['formupdate'])) {
     $mdp2 = htmlspecialchars($_POST['mdp2']);
     $question = htmlspecialchars($_POST['question']);
     $reponse = htmlspecialchars($_POST['reponse']);
-    if(isset($_POST['username'])) {
+    if(!empty($_POST['username'])) {
         if($username == $username2) {
             $pseudolength = strlen($username);
             $stmt = $bdd->prepare('SELECT username FROM membres WHERE username = ?');
@@ -41,7 +41,7 @@ if(isset($_POST['formupdate'])) {
             $erreur = 'Les pseudos ne correspondent pas.';
         }
     }
-    if(isset($_POST['mdp'])) {
+    if(!empty($_POST['mdp'])) {
         if($mdp == $mdp2) {
             $mdplength = strlen($mdp);
             if($mdplength <= 20 AND $mdplength > 5) {
@@ -56,8 +56,8 @@ if(isset($_POST['formupdate'])) {
             $erreur = 'Les mots de passe ne correspondent pas.';
         }
     }
-    if(isset($_POST['question'])) {
-        if(isset($_POST['reponse'])) {
+    if(!empty($_POST['question'])) {
+        if(!empty($_POST['reponse'])) {
             $hashrep=password_hash($_POST['reponse'], PASSWORD_DEFAULT);
             $updatembr = $bdd->prepare("UPDATE membres SET question=?, reponse=? WHERE username=?");
             $updatembr->execute(array($question, $hashrep, $_SESSION['username']));
